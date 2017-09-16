@@ -5,7 +5,7 @@
       "removeComments": true,
       "noImplicitAny": true,
       "sourceMap": true,
-      "outDir": "./dist",
+      "outDir": "./",
       "baseUrl": "./core"
     },
     "exclude": [

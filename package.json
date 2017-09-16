@@ -7,7 +7,7 @@
   , "url" : "https://github.com/killroy192/ts-js-path-resolve.git"
   },
   "main": "./dist/index.js",
-  "types": "./core/main.d.ts",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "tsc",
     "build-watch": "tsc --watch"

@@ -1,6 +1,6 @@
 import path = require('path');
 
-export default function (pathToTSConfig = '../tsconfig') {
+export function pathResolver (pathToTSConfig = '../tsconfig') {
 
     const { outDir, baseUrl, paths } = <Options>require(pathToTSConfig).compilerOptions;
 

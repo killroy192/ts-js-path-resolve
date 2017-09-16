@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = require("path");
-function default_1(pathToTSConfig) {
+function pathResolver(pathToTSConfig) {
     if (pathToTSConfig === void 0) { pathToTSConfig = '../tsconfig'; }
     var _a = require(pathToTSConfig).compilerOptions, outDir = _a.outDir, baseUrl = _a.baseUrl, paths = _a.paths;
     var rootPath = path.join(__dirname, '..', baseUrl);
@@ -13,5 +13,5 @@ function default_1(pathToTSConfig) {
     });
     require('module').Module._initPaths();
 }
-exports.default = default_1;
+exports.pathResolver = pathResolver;
 //# sourceMappingURL=index.js.map
