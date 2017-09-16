@@ -65,7 +65,7 @@ import module2 from 'lib2/lib3/'; // now import currectly work after compiling
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/ts-node.svg?style=flat
+[npm-image]: https://img.shields.io/badge/npm-3.0.0-blue.svg
 [npm-url]: https://npmjs.org/package/ts-js-path-resolve
-[downloads-image]: https://img.shields.io/npm/dm/ts-node.svg?style=flat
+[downloads-image]: https://img.shields.io/badge/downloads-1%2Fday-yellow.svg
 [downloads-url]: https://npmjs.org/package/ts-js-path-resolve
