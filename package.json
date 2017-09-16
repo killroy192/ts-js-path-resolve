@@ -1,0 +1,28 @@
+{
+  "name": "ts-js-path-resolve",
+  "version": "0.0.1",
+  "description": "When TS compiler for path resolving use the tsconfig.json file, it isn't correctly work after compiling, couse nodejs require doesn't nkow how find module. This ismplementation use the NODE_PATH hack to add new path where nodejs should search for modules.",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/killroy192/ts-js-path-resolve.git"
+  },
+  "main": "./dist/index.js",
+  "types": "./core/main.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build-watch": "tsc --watch"
+  },
+  "keywords": [
+    "NODE_PATH",
+    "TS",
+    "module",
+    "resolving"
+  ],
+  "author": "Dzmitry Lahunouski",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^8.0.26",
+    "tslint": "^3.15.1",
+    "typescript": "^2.4.0"
+  }
+}
