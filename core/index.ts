@@ -1,5 +1,23 @@
 import path = require('path');
 
+const flags: boolean = process.argv.some((avg) => avg === '--logs' || avg === '-LG');
+
+const addPath: UpdatePath = (modulePath, rootPath, modulePathSelector?) => {
+
+    const pathToResolve: string = modulePathSelector ?
+    modulePath.replace('./', '').replace(modulePathSelector, '') :
+    modulePath.replace('./', '').replace('/*', '');
+
+    const newPath: string = path.join(rootPath, pathToResolve);
+
+    process.env.NODE_PATH += `:${newPath}`;
+
+    if (flags) {
+        console.log(`add to NODE_PATH is '${newPath}' \n`);
+    }
+
+};
+
 export default function pathResolver (pathToTSConfig: string) {
 
     if ((/\.\/.*/).test(pathToTSConfig)) {
@@ -10,29 +28,33 @@ export default function pathResolver (pathToTSConfig: string) {
 
     const rootPath: string = path.join(pathToTSConfig.replace('.json', '').replace('/tsconfig', ''), outDir);
 
-    Object.keys(paths).forEach((modulePathSelector) => {
+    Object.keys(paths).forEach((modulePathSelector: string) => {
 
-        const currentModulePaths = paths[modulePathSelector];
+        const currentModulePaths: string[] = paths[modulePathSelector];
+
+        if (flags) {
+            console.log(`\n started NODE_PATH is '${process.env.NODE_PATH}' \n`);
+        }
 
         if (modulePathSelector === '*') {
 
-            currentModulePaths.forEach((modulePath) => {
+            currentModulePaths.forEach((modulePath: string) => {
 
-                const pathToResolve = modulePath.replace('./', '').replace('/*', '');
-
-                process.env.NODE_PATH += `:${path.join(rootPath, pathToResolve)}`;
+                addPath(modulePath, rootPath);
             });
 
         } else if (currentModulePaths.length === 1 && currentModulePaths[0].indexOf(modulePathSelector)) {
 
-            const pathToResolve = currentModulePaths[0].replace('./', '').replace(modulePathSelector, '');
-
-            process.env.NODE_PATH += `:${path.join(rootPath, pathToResolve)}`;
+            addPath(currentModulePaths[0], rootPath, modulePathSelector);
 
         } else {
 
             throw new Error(`can't resolve the paths which matches ${currentModulePaths}`);
 
+        }
+
+        if (flags) {
+            console.log(`now NODE_PATH is '${process.env.NODE_PATH}' \n`);
         }
     });
 

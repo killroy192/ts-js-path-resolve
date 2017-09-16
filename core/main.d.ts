@@ -7,3 +7,6 @@ declare interface Options {
     outDir: string;
     paths: Paths;
 }
+declare interface UpdatePath {
+    (modulePath: string, rootPath: string, modulePathSelector?: string): void;
+}
