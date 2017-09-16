@@ -1,1 +1,1 @@
-export default function pathResolver (pathToTSConfig?: string): void;
+export default function pathResolver (pathToTSConfig: string): void;
