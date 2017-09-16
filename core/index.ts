@@ -17,7 +17,10 @@ export default function pathResolver (pathToTSConfig: string) {
         if (modulePathSelector === '*') {
 
             currentModulePaths.forEach((modulePath) => {
-                process.env.NODE_PATH += `:${path.join(rootPath, modulePath.replace('./', ''))}`;
+
+                const pathToResolve = modulePath.replace('./', '').replace('/*', '');
+
+                process.env.NODE_PATH += `:${path.join(rootPath, pathToResolve)}`;
             });
 
         } else if (currentModulePaths.length === 1 && currentModulePaths[0].indexOf(modulePathSelector)) {

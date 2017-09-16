@@ -11,7 +11,8 @@ function pathResolver(pathToTSConfig) {
         var currentModulePaths = paths[modulePathSelector];
         if (modulePathSelector === '*') {
             currentModulePaths.forEach(function (modulePath) {
-                process.env.NODE_PATH += ":" + path.join(rootPath, modulePath.replace('./', ''));
+                var pathToResolve = modulePath.replace('./', '').replace('/*', '');
+                process.env.NODE_PATH += ":" + path.join(rootPath, pathToResolve);
             });
         }
         else if (currentModulePaths.length === 1 && currentModulePaths[0].indexOf(modulePathSelector)) {
