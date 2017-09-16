@@ -13,5 +13,5 @@ function pathResolver(pathToTSConfig) {
     });
     require('module').Module._initPaths();
 }
-exports.pathResolver = pathResolver;
+exports.default = pathResolver;
 //# sourceMappingURL=index.js.map
