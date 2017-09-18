@@ -3,7 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
 
-> Use the "NODE_PATH hack" to add new path from tsconfig.json where nodejs should search for modules. **Works with `typescript@>=2.0`**.
+> Use the "NODE_PATH hack" to add new path from tsconfig.json where nodejs should search for modules. **Works with `typescript@>=2.0` and only with *-unix OS**.
 
 ## Installation
 
